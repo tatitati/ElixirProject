@@ -1,4 +1,4 @@
-Goals
+# Goals
 1. Functional programming
 2. Metaprogramming
 3. Actor pattern
