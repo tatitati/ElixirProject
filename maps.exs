@@ -25,6 +25,6 @@ IO.inspect value # 10
 IO.inspect val # 10
 
 # like in string we can say: "abilities has a field in the format "intelligence: <something>", what is the value of that something?
-#%{intelligence: val = 20} = abilities 
+#%{intelligence: val = 20} = abilities
 #IO.inspect val # error
 
