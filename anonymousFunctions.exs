@@ -1,13 +1,13 @@
 #######
 
-hello = fn name -> IO.puts("hello " <> name) end
+myfirstfunction = fn name -> IO.puts("hello " <> name) end
 
-helloMultiline = fn name -> 
+myfirstfunctionMultiline = fn name -> 
     IO.puts("hello " <> name) 
 end
 
-hello.("maria") # hello maria
-helloMultiline.("eva") # hello eva
+myfirstfunction.("maria") # hello maria
+myfirstfunctionMultiline.("eva") # hello eva
 
 
 #######

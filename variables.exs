@@ -9,4 +9,3 @@ IO.puts "anyname #{surname}" #anyname surname
 a = [2, 3]
 b = a ++ [4, 5]
 IO.inspect(b) # [2, 3, 4, 5]
-
