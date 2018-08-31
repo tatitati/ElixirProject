@@ -1,4 +1,4 @@
-defmodule SpawnBasic do
+defmodule GeeterListener do
     def greet do
         receive do
             {callerPid, msg} ->
@@ -8,7 +8,7 @@ defmodule SpawnBasic do
 end
 
 # the client send to the process..
-pidProcess = spawn(SpawnBasic, :greet, [])
+pidProcess = spawn(GeeterListener, :greet, [])
 send pidProcess, {self, "world!!!!"}
 
 IO.puts "client process: " <> inspect(self)
