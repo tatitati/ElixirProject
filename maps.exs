@@ -1,3 +1,10 @@
+simple_map = %{"result" => "good", "action" => "delete" }
+IO.inspect simple_map["result"] # good
+
+# if keys are set in the map as atoms, then you can access by using atom values and use : notation
+simple_map = %{result: "good", action: "delete" }
+IO.inspect simple_map[:result] # good
+
 #
 # Extracting values from maps using pattern matching
 #
@@ -14,6 +21,7 @@ IO.inspect value # 10
 %{intelligence: val = 10} = abilities # like in string we can say: "abilities has a field in the format "intelligence: <something>", what is the value of that something?
 IO.inspect val # 10
 
-%{intelligence: val = 20} = abilities # like in string we can say: "abilities has a field in the format "intelligence: <something>", what is the value of that something?
-IO.inspect val # error
+# like in string we can say: "abilities has a field in the format "intelligence: <something>", what is the value of that something?
+#%{intelligence: val = 20} = abilities 
+#IO.inspect val # error
 
