@@ -23,4 +23,5 @@ defmodule SuiciderProcess do
     end
 end
 
-SuiciderProcess.run # ** (EXIT from #PID<0.89.0>) :boom
+# IMPORTANT: THIS KILL THE PROCESS, NO MESSAGE LIKE "NOTHING HAPPEND, OR MESSAGE RECEIVED", spawn_link kill all linked process when one of the linked one die
+SuiciderProcess.run # ** (EXIT from #PID<0.89.0>) :boom      
