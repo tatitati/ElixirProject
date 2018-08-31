@@ -1,4 +1,5 @@
-Goals
-- Functional programming
-- Actor pattern
-- Concurrency
+# Goals
+- [ ] Functional programming
+- [ ] Metaprogramming
+- [ ] Actor pattern
+- [ ] Concurrency
