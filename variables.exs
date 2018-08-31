@@ -1,11 +1,24 @@
+# concat lists
+a = [2, 3]
+b = a ++ [4, 5]
+IO.inspect(b) # [2, 3, 4, 5]
+
 
 # concat strings
 surname = "surname"
 IO.puts "anyname " <> surname #anyname surname
 IO.puts "anyname #{surname}" #anyname surname
 
+#
+# extracting value with pattern matching
+#
 
-# concat lists
-a = [2, 3]
-b = a ++ [4, 5]
-IO.inspect(b) # [2, 3, 4, 5]
+# if you remember how we concat strings...
+IO.puts "anyname " <> "OTHER TEXT" #anyname OTHER TEXT
+
+# Matching parts of an string is kind of "explain how they are joined"
+# Example:
+# If I concact "Authentication" with a variable named "credentials", my final text would be: "Authentication: whatever text you want"
+# so we can know what that "credentials" value is
+"Authentication: " <> credentials = "Authentication: whatever text you want"
+IO.puts credentials # whatever text you want
