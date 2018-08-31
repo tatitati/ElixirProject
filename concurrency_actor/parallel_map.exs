@@ -1,9 +1,10 @@
 defmodule ParallelMap do
-    def pmap(collection, fun) do
+    def pmap(collection, operation) do
         me = self()
         collection
         |> Enum.map(fn (elem) ->
-            spawn_link fn -> (send me, {self(), fun.(elem)}) end
+            # I run the operatio over each item in the map in a parallel process on the fly
+            spawn_link fn -> (send me, {self(), operation.(elem)}) end # this create a list of PIDs, used (as they are returned) by the next step in the map
             end)
         |> Enum.map(fn (pid) ->
             receive do { ^pid, result } ->
