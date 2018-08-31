@@ -12,7 +12,6 @@ IO.puts "anyname #{surname}" #anyname surname
 #
 # extracting value with pattern matching
 #
-
 # if you remember how we concat strings...
 IO.puts "anyname " <> "OTHER TEXT" #anyname OTHER TEXT
 
