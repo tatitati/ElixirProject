@@ -1,9 +1,12 @@
 simple_map = %{"result" => "good", "action" => "delete" }
 IO.inspect simple_map["result"] # good
+IO.inspect simple_map[:result] # nil
 
 # if keys are set in the map as atoms, then you can access by using atom values and use : notation
 simple_map = %{result: "good", action: "delete" }
+IO.inspect simple_map["result"] # nil
 IO.inspect simple_map[:result] # good
+IO.inspect simple_map.result # good
 
 #
 # Extracting values from maps using pattern matching
