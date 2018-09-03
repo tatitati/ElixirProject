@@ -7,6 +7,7 @@ defmodule BidirectionalCounter do
         ref = make_ref()
         # self() === PID<0.89.0>
         # ref === Reference<0.3075104721.1116995585.147357>
+
         send pid_counter, {:next_loop, self(), ref}
         receive do # kind of promisises......
             {:ok, ^ref, count} -> IO.puts count
@@ -25,11 +26,6 @@ end
 
 pid = BidirectionalCounter.start(23)
 
-BidirectionalCounter.next(pid)
-Process.sleep(1000)
-
-BidirectionalCounter.next(pid)
-Process.sleep(1000)
-
-BidirectionalCounter.next(pid)
-Process.sleep(1000)
+BidirectionalCounter.next(pid) # 23
+BidirectionalCounter.next(pid) # 24
+BidirectionalCounter.next(pid) # 25

@@ -9,14 +9,14 @@ end
 
 # the client send to the process..
 pidProcess = spawn(GeeterListener, :greet, [])
-send pidProcess, {self, "world!!!!"}
-
-IO.puts "client process: " <> inspect(self)
-IO.puts "spawned process: " <> inspect(pidProcess)
 
 
-# and the client receive response from the process...
+IO.puts "client process: " <> inspect(self()) # client process: #PID<0.89.0>
+IO.puts "spawned process: " <> inspect(pidProcess) # spawned process: #PID<0.94.0>
+
+
+send pidProcess, {self(), "world!!!!"}
 receive do
     {:ok, message} ->
-        IO.puts message # IM THE PROCESS!!!, HELLO world!!!!
+        IO.puts message # IM THE PROCESS!!!, HELLO world!!!!, I see your PID is:#PID<0.89.0>
 end
