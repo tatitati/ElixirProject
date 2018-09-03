@@ -10,11 +10,11 @@ defmodule Counter do
 end
 
 # run actor server
-pid = spawn(Counter, :loop, [1])
+pid = spawn(Counter, :loop, [22])
 
 # run client
-send pid, {:next}
+send pid, {:next} # 22
 Process.sleep(1000)
-send pid, {:next}
+send pid, {:next} # 23
 Process.sleep(1000)
-send pid, {:next}
+send pid, {:next} # 24
