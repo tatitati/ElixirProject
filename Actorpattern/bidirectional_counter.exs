@@ -1,13 +1,13 @@
-defmodule Bidirectional do
+defmodule BidirectionalCounter do
     def start(count) do
         spawn(__MODULE__, :loop, [count])
     end
 
-    def next(pid) do
-        ref = make_ref() 
+    def next(pid_counter) do
+        ref = make_ref()
         # self() === PID<0.89.0>
         # ref === Reference<0.3075104721.1116995585.147357>
-        send pid, {:next, self(), ref}
+        send pid_counter, {:next, self(), ref}
         receive do
             {:ok, ^ref, count} -> IO.puts count
         end
