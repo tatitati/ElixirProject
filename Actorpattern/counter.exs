@@ -15,6 +15,9 @@ pid = spawn(Counter, :loop, [22])
 # run client
 send pid, {:next} # 22
 Process.sleep(1000)
+
 send pid, {:next} # 23
 Process.sleep(1000)
+
 send pid, {:next} # 24
+Process.sleep(1000)
