@@ -15,6 +15,6 @@ end
 pid = spawn(Talker, :loop, [])
 
 ## execute client
-send(pid, {:greet, "Francisco"} # Hello Francisco!!!
+send(pid, {:greet, "Francisco"} # CLI output: Hello Francisco!!!
 
 
