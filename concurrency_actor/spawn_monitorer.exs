@@ -11,7 +11,7 @@ defmodule SpawnMonitorer do
         spawn_monitor(SpawnMonitorer, :sad_function, [])
         receive do
             msg ->
-                IO.puts "MESSAGE RECEIVED: #{inspect msg}"
+                IO.puts "MSG: #{inspect msg}"
             after 1000 ->
                 IO.puts "NOTHING HAPPEND"
         end
@@ -19,5 +19,5 @@ defmodule SpawnMonitorer do
 end
 
 # IMPORTANT: spawn monitor doesn't kill all processes attached when the monitored one dies (as it does spawn_link), this is obvious as is printed messages
-# like "MESSAGE RECEIVED OR NOTHING HAPPENED"
-SpawnMonitorer.run # MESSAGE RECEIVED: {:DOWN, #Reference<0.1574448092.97779713.121224>, :process, #PID<0.94.0>, :boom}
+# like "MSG OR NOTHING HAPPENED"
+SpawnMonitorer.run # MSG: {:DOWN, #Reference<0.1574448092.97779713.121224>, :process, #PID<0.94.0>, :boom}
