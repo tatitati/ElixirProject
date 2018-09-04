@@ -12,7 +12,7 @@ defmodule SpawnLinker do
         Process.flag(:trap_exit, true)
 
         # If we spawn as usual, then we will get only "NOTHING HAPPEND", our client won't be notified about the death of our sad_function.
-        # However, if we spawn_link, then we will get a notification
+        # However, if we spawn_link, then we will get a notification (Only when we trap the exit, we will be able to process exit-messages)
         res = spawn_link(SpawnLinker, :sad_function, [])
         IO.puts inspect res # {#PID<0.94.0>, #Reference<0.1574448092.97779713.121224>}
         receive do
