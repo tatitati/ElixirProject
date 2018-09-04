@@ -1,5 +1,8 @@
-# api for the actor server
 defmodule ApiCounter do
+
+    #
+    # API of actor
+    #
     def start(count) do
         # spawn this module (itself)
         spawn(__MODULE__, :loop, [count])
@@ -13,7 +16,10 @@ defmodule ApiCounter do
         send pid, {:rewind}
     end
 
-    def loop(count) do
+    #
+    # Actor
+    #
+    def loop(count) do 
         receive do
             {:next} ->
                 IO.puts("Current count: #{count}")
