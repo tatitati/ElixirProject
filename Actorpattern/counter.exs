@@ -1,4 +1,8 @@
 defmodule Counter do
+
+    #
+    # Actor
+    #
     def loop(count) do
         receive do
             {:next} ->
