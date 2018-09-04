@@ -7,7 +7,8 @@ defmodule SpawnLinker do
     end
 
     def run do
-        # if we uncomment this line we will get "MESSAGE RECEIVED: EXIT FROM PID......". The output of the process will be converted to something that the client can handle (a msg)
+        # in case we dont trap the exit code, our output is: ** (EXIT from #PID<0.89.0>) :boom
+        # which is none of our messages to display. This means, that we don't trap any messages when the process finish.
         Process.flag(:trap_exit, true)
 
         # If we spawn as usual, then we will get only "NOTHING HAPPEND", our client won't be notified about the death of our sad_function.
@@ -20,7 +21,7 @@ defmodule SpawnLinker do
             # 2. Or I can say that is just any trapped message (laster, inspecting, I see all the fields).
             # I can comment any of these two options and see the corresponding outputs
             {:EXIT, pid, reason} ->
-                IO.puts reason # boom
+                IO.puts "Reason: " <> to_string(reason) # Reason: boom
             msg ->
                 IO.puts "MESSAGE RECEIVED: #{inspect msg}" # MESSAGE RECEIVED: {:EXIT, #PID<0.94.0>, :boom}
             after 1000 ->
@@ -29,5 +30,4 @@ defmodule SpawnLinker do
     end
 end
 
-# IMPORTANT: THIS KILL THE PROCESS, NO MESSAGE LIKE "NOTHING HAPPEND, OR MESSAGE RECEIVED", spawn_link kill all linked process when one of the linked one die
 SpawnLinker.run
