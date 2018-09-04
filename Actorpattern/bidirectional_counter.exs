@@ -14,6 +14,9 @@ defmodule BidirectionalCounter do
         end
     end
 
+    #
+    # Actor
+    #
     def loop(count) do
         receive do
             {:next_loop, sender, ref} ->
