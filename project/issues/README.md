@@ -1,6 +1,6 @@
 # Issues
 
-**TODO: Add description**
+A simple project in elixir to fetch issues from github in parallel with functional programming and actor pattern
 
 ## Installation
 
