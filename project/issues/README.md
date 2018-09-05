@@ -2,6 +2,12 @@
 
 A simple project in elixir to fetch issues from github in parallel with functional programming and actor pattern
 
+## TODO
+- [x] Parse cli input
+- [ ] Learn to install dependencies/packages
+- [ ] Consume github APi
+
+
 ## Installation
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed
