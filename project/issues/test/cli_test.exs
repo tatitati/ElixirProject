@@ -9,6 +9,10 @@ defmodule CliTest do
     end
 
     test "Parser can split all arguments" do
-        assert parse_args(["One", "Two", "Three"]) == {"One", "Two", "Three"}
+        assert parse_args(["One", "Two", "3"]) == {"One", "Two", 3}
+    end
+
+    test "Default value is returned if last argument is not specified" do
+        assert parse_args(["One", "Two"]) == {"One", "Two", 4}
     end
 end

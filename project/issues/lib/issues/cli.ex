@@ -10,7 +10,10 @@ defmodule Issues.Cli do
             {[help: true], _ } -> :help
 
             # parse = {[], ["One", "Two", "Three"]}
-            {_ , [arg1, arg2, arg3]} -> {arg1, arg2, arg3}
+            {_ , [arg1, arg2, arg3]} -> {arg1, arg2, String.to_integer(arg3)}
+
+            # parse = {[], ["One", "Two"]}
+            {_ , [arg1, arg2]} -> {arg1, arg2, 4}
         end
     end
 end
