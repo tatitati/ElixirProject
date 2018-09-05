@@ -4,8 +4,8 @@ defmodule CliTest do
     import Issues.Cli
 
     test "Alias for help option work" do
-        assert parse_args(["-h", "anything"]) == :help
-        assert parse_args(["-help", "anything"]) == :help
+        assert parse_args(["-h", "about"]) == {:help, "about"}
+        assert parse_args(["--help", "about"]) == {:help, "about"}
     end
 
     test "Parser can split all arguments" do

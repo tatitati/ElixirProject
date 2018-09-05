@@ -4,10 +4,10 @@ defmodule Issues.Cli do
             switches: [help: :boolean],
             aliases: [h: :help]
         )
-
+        IO.inspect parse
         case parse do
             # parse =  {[help: true], ["anything"]}
-            {[help: true], _ } -> :help
+            {[help: true], [topic] } -> { :help,  topic}
 
             # parse = {[], ["One", "Two", "Three"]}
             {_ , [arg1, arg2, arg3]} -> {arg1, arg2, String.to_integer(arg3)}
