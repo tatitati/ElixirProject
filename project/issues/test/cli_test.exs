@@ -15,4 +15,8 @@ defmodule CliTest do
     test "Default value is returned if last argument is not specified" do
         assert parse_args(["One", "Two"]) == {"One", "Two", 4}
     end
+
+    test "Help argument provide instructions" do
+        assert run(["-h", "about"]) == "sage: issues <user> <project> [ count | 4 ]"
+    end
 end
