@@ -1,8 +1,3 @@
-
-keywordlist = [a: "something", b: "whatever"]
-IO.inspect(keywordlist) # [a: "something", b: "whatever"]
-
-
 [head | tail] = ["valueA", "valueB", "valueC", "valueD"]
 IO.inspect head # "valueA"
 IO.inspect tail # ["valueB", "valueC", "valueD"]
