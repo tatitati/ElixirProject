@@ -1,27 +1,30 @@
-defmodule Counter do
+defmodule MyModule do
 
     #
     # Actor
     #
-    def loop(count) do
+    def loop(number) do
         receive do
-            {:next} ->
-                IO.inspect count
-                loop(count + 1)
-
+            {originId, :increase, msg} ->                 
+                send originId, {:ok, number}
+                
         end
+        loop(number + 1)
     end
 end
 
-# run actor server
-pid = spawn(Counter, :loop, [22])
 
-# run client
-send pid, {:next} # 22
-Process.sleep(1000)
+pid = spawn(MyModule, :loop, [34])
 
-send pid, {:next} # 23
-Process.sleep(1000)
 
-send pid, {:next} # 24
-Process.sleep(1000)
+####### First increase
+send(pid, {self(), :increase,  "response One"})
+receive do 
+    {:ok, number} -> IO.puts number # 34
+end
+
+####### Second increase
+send(pid, {self(), :increase,  "response Two"})
+receive do 
+    {:ok, number} -> IO.puts number # 35
+end
