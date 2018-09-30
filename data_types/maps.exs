@@ -1,30 +1,26 @@
-simple_map = %{"result" => "good", "action" => "delete" }
+# Using strings as keys: 
+simple_map = %{"result" => "good", "action" => "delete" }  # or %{"result" : "good", "action" : "delete" }
 IO.inspect simple_map["result"] # good
 IO.inspect simple_map[:result] # nil
 
-# if keys are set in the map as atoms, then you can access by using atom values and use : notation
-simple_map = %{result: "good", action: "delete" }
+
+# Using atoms as keys
+simple_map = %{:result => "good", :action => "delete" } # or %{result: "good", action: "delete" }
 IO.inspect simple_map["result"] # nil
 IO.inspect simple_map[:result] # good
 IO.inspect simple_map.result # good
 
 #
-# Extracting values from maps using pattern matching
+# Pattern matching
 #
-abilities = %{strength: 16, intelligence: 10, name: "terminator"}
-%{intelligence: value} = abilities # like in string we can say: "abilities has a field in the format "intelligence: <something>", what is the value of that something?
+%{intelligence: value} = %{strength: 16, intelligence: 10, name: "terminator"}
 IO.inspect value # 10
 
 
-#
-# Extracting conditionally
-#
+%{intelligence: value, strength: 16} = %{strength: 16, intelligence: 10, name: "terminator"}
+IO.inspect value # 10
 
-# we can set conditions when matching and in this way extract conditionally:
-%{intelligence: val = 10} = abilities # like in string we can say: "abilities has a field in the format "intelligence: <something>", what is the value of that something?
+
+%{intelligence: val = 10} = %{strength: 16, intelligence: 10, name: "terminator"}
 IO.inspect val # 10
-
-# like in string we can say: "abilities has a field in the format "intelligence: <something>", what is the value of that something?
-#%{intelligence: val = 20} = abilities
-#IO.inspect val # error
 
