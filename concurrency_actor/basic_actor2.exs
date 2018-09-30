@@ -3,20 +3,31 @@ defmodule GeeterListener do
         receive do
             {callerPid, msg} ->
                 send callerPid, {:ok, "IM THE PROCESS!!!, HELLO #{msg}, I see your PID is:" <> inspect(callerPid)}
+                greet # remember tail-call optimization dont create a new frame in the stack, is an special feature in elixir/scala. So there is no problem running out of memory
         end
     end
 end
 
-# the client send to the process..
+
 pidProcess = spawn(GeeterListener, :greet, [])
 
 
-IO.puts "client process: " <> inspect(self()) # client process: #PID<0.89.0>
-IO.puts "spawned process: " <> inspect(pidProcess) # spawned process: #PID<0.94.0>
-
-
-send pidProcess, {self(), "world!!!!"}
+#
+#  Send and recieve....
+#
+send pidProcess, {self, "world!!!!"}
 receive do
     {:ok, message} ->
-        IO.puts message # IM THE PROCESS!!!, HELLO world!!!!, I see your PID is:#PID<0.89.0>
+        IO.puts message # IM THE PROCESS!!!, HELLO world!!!!
+end
+
+#
+#  Send and recieve....
+#
+send pidProcess, {self, "whatever!!!!"}
+receive do
+    {:ok, message} ->
+        IO.puts message
+    after 500 ->
+        IO.puts "TIME OUT, NO RESPONSE FROM THE PROCESS"
 end

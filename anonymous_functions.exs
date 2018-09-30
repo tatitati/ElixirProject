@@ -1,5 +1,4 @@
 #######
-
 myfirstfunction = fn name -> IO.puts("hello " <> name) end
 
 myfirstfunctionMultiline = fn name -> 
@@ -11,7 +10,6 @@ myfirstfunctionMultiline.("eva") # hello eva
 
 
 #######
-
 ivaLambda = fn orderPrice -> orderPrice * 2 / 100 end
 priceCalculatorLambda = fn orderPrice, ivaCalculator -> orderPrice + ivaCalculator.(orderPrice) end
 

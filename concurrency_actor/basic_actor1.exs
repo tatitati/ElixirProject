@@ -1,3 +1,6 @@
+# This is the most basic actor. 
+# Is an actor that print an string in the format "Hello <variable>
+
 defmodule Talker do
     def loop do
         receive do
@@ -11,7 +14,6 @@ end
 
 
 ## run actor server
-
 pid = spawn(Talker, :loop, [])
 
 ## execute client
