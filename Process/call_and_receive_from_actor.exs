@@ -27,7 +27,7 @@ end
 send pidProcess, {self, "whatever!!!!"}
 receive do
     {:ok, message} ->
-        IO.puts message
+        IO.puts message # IM THE PROCESS!!!, HELLO whatever!!!!
     after 500 ->
         IO.puts "TIME OUT, NO RESPONSE FROM THE PROCESS"
 end
